@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from "@angular/common/http"
-
+import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { UtilsService } from '../../services/utils.service';
+import { CedorUtils } from '../../../assets/js/utils'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,8 +10,11 @@ import { HttpClient,HttpHeaders } from "@angular/common/http"
 export class HomeComponent implements OnInit {
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
+  private utils:any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private utilService:UtilsService) {
+    this.utils = new CedorUtils
+  }
 
   ngOnInit() {
   }
@@ -21,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.http.post('test/post',{msg:'11111'} , {headers:this.headers}).subscribe(res=>{
       console.log(res);
     })
+    console.log(this.utilService.getApproveType(100));
   }
   upFile(e){
     console.log(e);
