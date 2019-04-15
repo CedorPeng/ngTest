@@ -2,5 +2,14 @@
   home works!
 </p>
 
-<button (click)="click()">点我试试看</button>
-<input type="file" (change)="upFile($event)">
+<button nz-button nzType="default" (click)="click()">Default</button>
+
+<br />
+
+<!--<button nz-button nzType="primary" nzSize="default" nzShape="circle"><i nz-icon type="download"></i></button>-->
+
+<div class="clearfix">
+  <nz-upload nzAction="test/upFile" nzListType="picture" (nzChange)="upData($event)">
+    <button nz-button [disabled]="upLoading"><i nz-icon type="upload"></i><span>Upload</span></button>
+  </nz-upload>
+</div>
