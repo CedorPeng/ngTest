@@ -44,6 +44,12 @@ CedorUtils.prototype = {
     return value.replace(/\s/g,'');
   },
   /**
+   * @字符串去掉前后空格
+   * */
+  trimBothSide:function(value){
+    return value.replace(/(^\s*)|(\s*$)/g,'');
+  },
+  /**
    * @数组去重
    * */
   removeRepeat:function(value){
