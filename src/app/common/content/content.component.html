@@ -1,0 +1,30 @@
+<div class="main">
+  <div class="main-menu">
+    <ul nz-menu [nzMode]="'inline'" style="width: 240px;height: 100%">
+      <li nz-submenu *ngFor="let item of menuList">
+        <span title><i nz-icon type="mail"></i>1111111</span>
+        <ul>
+          <li nz-menu-group>
+            <span title></span>
+            <ul>
+              <li *ngFor="let childItem of item.children" nz-menu-item (click)="goMenu(childItem)"><a routerLink="{{childItem.path}}">{{childItem.name}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="main-routerBox">
+    <nz-tabset [nzType]="'card'" [nzSelectedIndex]="tabsIndex">
+      <nz-tab *ngFor="let tab of tabs,let key = index" [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+          <div class="main-routerBox__tabs">
+            <a routerLink="{{tab.path}}">{{ tab.name }}</a>
+            <i nz-icon type="close" (click)="$event.stopPropagation();closeTab(key)" class="main-routerBox__tabs--close"></i>
+          </div>
+        </ng-template>
+      </nz-tab>
+    </nz-tabset>
+    <router-outlet></router-outlet>
+  </div>
+</div>

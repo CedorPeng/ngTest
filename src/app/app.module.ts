@@ -13,13 +13,18 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { TestComponent } from './components/test/test.component';
+import { ContentComponent } from './common/content/content.component';
+// import { LoginGuard } from './guard/login.guard'
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TestComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

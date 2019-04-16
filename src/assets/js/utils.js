@@ -53,14 +53,15 @@ CedorUtils.prototype = {
    * @数组去重
    * */
   removeRepeat:function(value){
-    // let arr = [],obj={};
-    // for (let i = 0 ; i < value.length ; i++){
-    //   if(!obj[value[i]]){
-    //     arr.push(value[i]);
-    //     obj[value[i]] = 1;
-    //   }
-    // }
-    return [...new Set(value)]
+    let arr = [],obj={};
+    for (let i = 0 ; i < value.length ; i++){
+      if(!obj[value[i]]){
+        arr.push(value[i]);
+        obj[value[i]] = 1;
+      }
+    }
+    return arr
+    // return [...new Set(value)]
   },
   /**
    * @数组求和
